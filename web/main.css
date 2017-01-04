@@ -1,0 +1,55 @@
+/* For Small Screens */
+h1 {
+    font-family: 'Lobster Two', cursive;
+    color: #FEF33A;
+    font-size: 50px;
+}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0px;
+    width: 100%;
+    background-image: url("https://i.ytimg.com/vi/K4wLeyXuKao/maxresdefault.jpg");
+    width: 100%;
+    height: auto;
+}
+header {
+    background-color: #BD3B3B;
+    width: auto;
+    padding: 3%;
+    text-align: right;
+}
+
+    /* For Large Screens */
+@media only screen and (min-width: 768px) {
+    header {
+        float: left;
+        width: 20%;
+        height: 100%;
+        position: fixed;
+    } 
+    h1 {
+    font-size: 65px;
+    text-align: center;
+    }
+}
+
+
+/* Flaired edges, by Tomas Theunissen */
+
+hr{
+    height: 30px;
+    border-style: solid;
+    border-color: #FEF33A;
+    border-width: 3px 0 0 0;
+    border-radius: 20px;
+}
+hr:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: #FEF33A;
+    border-width: 0 0 3px 0;
+    border-radius: 20px;
+}
