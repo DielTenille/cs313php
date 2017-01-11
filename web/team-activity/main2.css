@@ -1,0 +1,62 @@
+
+body {
+    font-family: 'Cherry Swash', cursive;
+}
+
+.change {
+    font-size: 30px;
+    color: white;
+    border-radius: 5px;
+    background-color: lightpink;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1%;
+}
+
+.change:hover {
+    font-weight: bolder;
+}
+
+.input {
+    width: 50%;
+    margin: 2% auto;
+    border-style: none;
+}
+
+.colorSelect {
+    margin: 1%;
+}
+
+#clickMe {
+    display: block;
+    width: 30%;
+    margin: 5% auto;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+button {
+    font-size: 20px;
+}
+
+header {
+    background-color: hotpink;
+    width: auto;
+    padding: 3%;
+    text-align: right;
+    margin-bottom: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+hr {
+    color: white;
+}
