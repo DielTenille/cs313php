@@ -6,7 +6,9 @@
     <title>Team Activity | Lesson 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
+    <script src="jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Cherry+Swash" rel="stylesheet">
   
 </head>
@@ -33,10 +35,16 @@
             <button onclick="updateColor2();">Change Color</button>
             </div>
             
-            <div class="change">Div 3</div>
+            <div id="thirdDiv" class="change">Div 3</div>
+            
+            <div class="input">
+            <input type="text" id="changeColor3" class="colorSelect"/>
+            <button id= "changeThirdDiv">Change Color</button>
+            </div>
             
             
             <button id= "clickMe" onclick= "btnClicked();">Click Me</button>
+            <button id= "hideDiv">Hide / Show</button>
         </main>
     </div>
 </body>

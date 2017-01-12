@@ -9,8 +9,7 @@ function updateColor1() {
     div1.style.backgroundColor = colorRequested;
 }
 function updateColor2() {
-    var inputID = document.getElementById("changeColor");
-    var colorRequested = inputID.value;
+    var colorRequested = document.getElementById("changeColor2").value;
     var div2 = document.getElementById("secondDiv");
     div2.style.backgroundColor = colorRequested;
 }

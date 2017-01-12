@@ -31,7 +31,8 @@ body {
 #clickMe {
     display: block;
     width: 30%;
-    margin: 5% auto;
+    margin: 2% auto;
+    margin-top: 3%;
 }
 
 main {
@@ -61,4 +62,10 @@ hr {
     color: white;
     border-width: 2px;
     border-style: solid;
+}
+
+#hideDiv {
+    display: block;
+    width: 30%;
+    margin: 2% auto;
 }
