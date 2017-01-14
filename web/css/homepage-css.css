@@ -1,4 +1,10 @@
 /* For Small Screens */
+@keyframes example {
+    0% {background-color: #FDFDFD;}
+    25%  {background-color: lightpink;}
+    50%  {background-color: lightblue;}
+    100% {background-color: #FDFDFD;}
+}
 h1 {
     font-family: 'Cormorant Garamond', serif;
     color: #FFFFFF;
@@ -76,6 +82,9 @@ article {
     padding-top: 1%;
     margin: 5%;
     box-shadow: 3px 3px 1px #583C3F;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
 }
 
 li {
@@ -138,4 +147,10 @@ figure img[alt="Postgres Logo"] {
 span {
     color: palevioletred;
     font-style: italic;
+}
+
+
+i {
+    float:right;
+    font-size: 36px;
 }

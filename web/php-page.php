@@ -29,7 +29,7 @@
                 <section class="post-content">
                 <h2><a href="#">Coming Soon!</a></h2>
                 <figure class = "side-image">
-                    <a href="#"><img src="https://qph.ec.quoracdn.net/main-qimg-c09568ce57200b5109cb2c3cb6df8973?convert_to_webp=true" alt="PHP Logo" class= "half-size"></a>
+                    <a href="#"><img src="https://qph.ec.quoracdn.net/main-qimg-c09568ce57200b5109cb2c3cb6df8973?convert_to_webp=true" alt="PHP Logo"</a>
                 </figure>
                 </section>
             </article>

@@ -13,7 +13,7 @@
 <body>
     <div>
         <header>
-            <h1><a href="index.php">Hello World!</a></h1>
+            <h1>Hello World!</h1>
             <hr>
         </header>
     </div>
