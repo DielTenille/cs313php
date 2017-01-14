@@ -39,7 +39,7 @@
                 <h2><a href="hello.php">Assignment #1: Hello World!</a></h2>
                     <p>A quick HTML page used to help us learn the process of uploaded files using Heroku.</p>
                 <figure>
-                    <img src="images/hello-world.PNG" alt="PHP Logo" class= "half-size">
+                    <a href=hello.php><img src="images/hello-world.PNG" alt="PHP Logo" class= "half-size"></a>
                 </figure>
                 <figure>
                     <img src="https://upload.wikimedia.org/wikipedia/en/archive/a/a9/20161027174404!Heroku_logo.png" alt="Heroku Logos" class= "half-size">

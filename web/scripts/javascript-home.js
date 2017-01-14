@@ -1,5 +1,5 @@
 
-function btnClicked() {
+function changeDirection() {
     alert("Clicked!");
 }
 

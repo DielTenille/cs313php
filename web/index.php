@@ -60,7 +60,7 @@
             </article>
              
             <article>
-                <section id= "arrow2" class="post-content">
+                <section class="post-content">
                     <i id= "arrow2" class="fa fa-angle-double-down"></i>
                 <h2>Technologies Used In This Course</h2>
                     <div id="div3-content">

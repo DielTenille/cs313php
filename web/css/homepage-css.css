@@ -101,7 +101,77 @@ img {
     height: auto;
     margin: auto;
 }
+.side-image {
+    float: left;
+}
+article::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
+figure {
+    margin: 0px;
+}
+
+figure img[alt="PHP Logo"] {
+    width: 35%;
+    float: left;
+    padding: 5%;
+}
+figure img[alt="PHP Logo"]:hover {
+    border-style: solid;
+    border-color: #BD3B3B;
+}
+figure img[alt="Postgres Logo"] {
+    width: 40%;
+    float: left;
+    padding: 5%;
+}
+figure img[alt="Postgres Logo"]:hover {
+    border-style: solid;
+    border-color: #BD3B3B;
+}
+figure img[alt="HTML5, CSS3, Javascript Logos"]:hover {
+    border-style: solid;
+    border-color: #BD3B3B;
+}
+
+span {
+    color: palevioletred;
+    font-style: italic;
+}
+
+
+i {
+    float:right;
+    font-size: 36px;
+}
+#div2-content {
+    display: none;
+}
+#div3-content {
+    display: none;
+}
+
+#arrow1 {
+    font-size: 200%;
+}
+#arrow1:hover {
+    color: #BD3B3B;
+}
+#arrow1:active {
+    color: #DEB887;
+}
+#arrow2 {
+    font-size: 200%;
+}
+#arrow2:hover {
+    color: #BD3B3B;
+}
+#arrow2:active {
+    color: #DEB887;
+}
 @media only screen and (min-width: 768px) {
     /* For Large Screens */
     body {
@@ -120,37 +190,6 @@ img {
         position: relative;
     }    
 }
-.side-image {
-    float: left;
-}
-article::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-figure {
-    margin: 0px;
-}
-
-figure img[alt="PHP Logo"] {
-    width: 40%;
-    float: left;
-    padding: 5%;
-}
-figure img[alt="Postgres Logo"] {
-    width: 40%;
-    float: left;
-    padding: 5%;
-}
-
-span {
-    color: palevioletred;
-    font-style: italic;
-}
 
 
-i {
-    float:right;
-    font-size: 36px;
-}
+
