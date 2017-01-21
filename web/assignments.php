@@ -24,8 +24,32 @@
             </nav>
         </header>
         
-         <main>
+         <main>            
             <article>
+                <section class="post-content">
+                <h2><a href="hello.php">Assignment: Lesson 1 - Hello World!</a></h2>
+                    <p>A quick HTML page used to help us learn the process of uploaded files using Heroku.</p>
+                <figure>
+                    <a href=hello.php><img src="images/hello-world.PNG" alt="PHP Logo" class= "half-size"></a>
+                </figure>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/archive/a/a9/20161027174404!Heroku_logo.png" alt="Heroku Logos" id="heroku" class= "half-size">
+                </figure>
+                                            
+                </section>
+            </article>
+             
+             <article>
+                <section class="post-content">
+                <h2><a href="lesson3-php-survey.php">Assignment: Lesson 3 - PHP Survey</a></h2>
+                    <p>A simple PHP Survey.</p>
+                <figure class = "side-image">
+                    <img src="http://christiancomputerrepair.com/wp-content/themes/christiancomputerrepair/images/home_computer.png">
+                </figure>
+                </section>
+            </article>
+             
+             <article>
                 <section class="post-content">
                 <h2><a href="#">Coming Soon!</a></h2>
                 <figure class = "side-image">
@@ -34,19 +58,6 @@
                 </section>
             </article>
 
-            <article>
-                <section class="post-content">
-                <h2><a href="hello.php">Assignment #1: Hello World!</a></h2>
-                    <p>A quick HTML page used to help us learn the process of uploaded files using Heroku.</p>
-                <figure>
-                    <a href=hello.php><img src="images/hello-world.PNG" alt="PHP Logo" class= "half-size"></a>
-                </figure>
-                <figure>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/archive/a/a9/20161027174404!Heroku_logo.png" alt="Heroku Logos" class= "half-size">
-                </figure>
-                                            
-                </section>
-            </article>
         </main>
         
     </div>
