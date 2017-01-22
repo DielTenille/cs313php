@@ -30,12 +30,17 @@
                 <h2><a href="hello.php">Assignment: Lesson 1 - Hello World!</a></h2>
                     <p>A quick HTML page used to help us learn the process of uploaded files using Heroku.</p>
                 <figure>
-                    <a href=hello.php><img src="images/hello-world.PNG" alt="PHP Logo" class= "half-size"></a>
-                </figure>
+                    <a href=hello.php><img src="images/hello-world.PNG" class= "half-size"></a>
+                </figure>                                            
+                </section>
+            </article>
+             <article>
+                <section class="post-content">
+                <h2><a href="index.php">Assignment: Lesson 2 - Course Home Page</a></h2>
+                    <p>Create this website!</p>
                 <figure>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/archive/a/a9/20161027174404!Heroku_logo.png" alt="Heroku Logos" id="heroku" class= "half-size">
-                </figure>
-                                            
+                    <a href=index.php><img src="images/home-pg.PNG" class= "half-size"></a>
+                </figure>                                            
                 </section>
             </article>
              
@@ -44,14 +49,14 @@
                 <h2><a href="lesson3-php-survey.php">Assignment: Lesson 3 - PHP Survey</a></h2>
                     <p>A simple PHP Survey.</p>
                 <figure class = "side-image">
-                    <img src="http://christiancomputerrepair.com/wp-content/themes/christiancomputerrepair/images/home_computer.png">
+                    <a href=lesson3-php-survey.php><img src="images/my-php-survey.PNG"></a>
                 </figure>
                 </section>
             </article>
              
              <article>
                 <section class="post-content">
-                <h2><a href="#">Coming Soon!</a></h2>
+                <h2><a href="#">Assignment: Lesson 4 - Coming Soon!</a></h2>
                 <figure class = "side-image">
                     <img src="http://christiancomputerrepair.com/wp-content/themes/christiancomputerrepair/images/home_computer.png">
                 </figure>
