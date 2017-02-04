@@ -62,6 +62,15 @@
                 </figure>
                 </section>
             </article>
+             
+             <article>
+                <section class="post-content">
+                <h2><a href="choreAssignerApp/choreAssignerHome.php">Assignment: Lesson 5 - Add Chore Assigning App</a></h2>
+                <figure class = "side-image">
+                    <a href="choreAssignerApp/choreAssignerHome.php"><img src="images/chore-charts.jpg"></a>
+                </figure>
+                </section>
+            </article>
 
         </main>
         
