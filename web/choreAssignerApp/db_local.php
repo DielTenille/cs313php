@@ -6,5 +6,5 @@
  * Time: 10:31 AM
  */
 
-$dbUrl = "postgres://postgres:password@localhost:5432/index";
+$dbUrl = "postgres://postgres:Pg!QAZ2wsx@localhost:5432/choreapp";
 ?>
