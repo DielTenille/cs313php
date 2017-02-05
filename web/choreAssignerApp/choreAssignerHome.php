@@ -38,6 +38,8 @@ $db = get_db();
                 <hr>
                 <br/>
                 <h3>Current Users</h3>
+                <br>
+                <button id="new_User" class="button">Add User</button>
                 <table class="all-results">
                     <thead>
                     <tr>

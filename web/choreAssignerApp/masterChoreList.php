@@ -39,6 +39,7 @@ $db = get_db();
                     <thead>
                     <tr>
                         <th>Chore ID</th>
+                        <th>Chore Name</th>
                         <th>Description</th>
                         <th>Minimum Age</th>
                         <th>Average Time</th>
@@ -53,7 +54,7 @@ $db = get_db();
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                 {
                     echo '<tr>';
-                    echo '<td>' . $row['choreid'] . '</td><td>' .$row['choredesc'] . '</td><td>' .$row['minage'] .
+                    echo '<td>' . $row['choreid'] . '</td><td>' . $row['chorename'] . '</td><td>' .$row['choredesc'] . '</td><td>' .$row['minage'] .
                         '</td><td>' . $row['avgtimehr'] . ': ' . $row['avgtimemin'] . '</td><td>' .$row['recurrencenum'] .
                         ' ' . $row['recurrencetimeid'] . '</td>';
                     echo '</tr>';
@@ -63,6 +64,8 @@ $db = get_db();
                 ?>
                     </tbody>
                 </table>
+                <br>
+                <button id="new_Chore" class="button">Add Chore</button>
             </section>
         </article>
     </main>
