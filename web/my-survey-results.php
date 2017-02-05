@@ -28,7 +28,7 @@
             <article>
                 <h2>Survey Results</h2>
                 
-                <table id="all-results">
+                <table class="all-results">
                     <?php
                         $myfile = fopen("survey-results.txt", "r") or die("Unable to open file!");
                         while(!feof($myfile)){

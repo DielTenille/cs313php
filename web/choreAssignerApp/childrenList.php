@@ -3,9 +3,8 @@
  * Created by PhpStorm.
  * User: t2alaska
  * Date: 2/4/2017
- * Time: 9:40 AM
+ * Time: 8:31 PM
  */
-
 require "dbConnection.php";
 $db = get_db();
 
@@ -14,7 +13,7 @@ $db = get_db();
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Chore Assigner | Home</title>
+    <title>Chore Assigner | Children</title>
     <link rel="stylesheet" type="text/css" href="../css/homepage-css.css">
 </head>
 <body>
@@ -34,33 +33,30 @@ $db = get_db();
     <main>
         <article>
             <section class="post-content">
-                <h2>Welcome to the Chore Assigner Application</h2>
+                <h2>List of Children</h2>
                 <hr>
-                <br/>
-                <h3>Current Users</h3>
                 <table class="all-results">
                     <thead>
                     <tr>
-                        <th>User ID</th>
-                        <th>Username</th>
+                        <th>Child ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                     </tr>
                     </thead>
                     <tbody>
-                <?php
-                $statement = $db->prepare("SELECT appuserid, appusername, firstname, lastname, email FROM appuser");
-                $statement->execute();
+                    <?php
+                    $statement = $db->prepare("SELECT * FROM child");
+                    $statement->execute();
 
-                while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                {
-                    echo '<tr>';
-                    echo '<td>' . $row['appuserid'] . '</td><td>' . $row['appusername'] . '</td><td>' .  $row['firstname'] . '</td><td>' . $row['lastname'] . '</td><td>' . $row['email'] . '</td>';
-                    echo '</tr>';
-                }
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                    {
+                        echo '<tr>';
+                        echo '<td>' . $row['childid'] . '</td><td>' . $row['childfirstname'] . '</td><td>' .  $row['childlastname'] . '</td><td>' . $row['childemail'] . '</td>';
+                        echo '</tr>';
+                    }
 
-                ?>
+                    ?>
                     </tbody>
                 </table>
 

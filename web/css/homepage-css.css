@@ -232,16 +232,16 @@ textarea:focus, input:focus {
 
 
 
-#all-results {
+.all-results {
     width: 90%;
     padding: 2%;
     text-align: left;
 }
-#all-results thead{
+.all-results thead{
     background-color: #BD3B3B;
     color: white;
 }
-#all-results th, #all-results td{
+.all-results th, .all-results td{
     padding: 1%;
 }
 
