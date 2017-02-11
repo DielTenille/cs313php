@@ -7,7 +7,7 @@
  */
 require "dbConnection.php";
 $db = get_db();
-
+$listID = $_GET['listid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,6 @@ $db = get_db();
             <ul>
                 <li><a href="choreAssignerHome.php">Chore Assigner Home</a></li>
                 <li><a href="masterChoreList.php">Master Chore List</a></li>
-                <li><a href="childrenList.php">Children</a></li>
             </ul>
         </nav>
     </header>
@@ -36,7 +35,18 @@ $db = get_db();
                 <hr>
                 <h3>Chore List Name</h3>
                 <label>List Status:
-                <select></select>
+                <select>
+                    <?php
+                    $statement = $db->prepare("SELECT statusname FROM status");
+                    $statement->execute();
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                    {
+                        echo '<option>' . $row['statusname'] . '</option>';
+
+                    }
+
+                    ?>
+                </select>
                 </label>
                 <table class="all-results">
                     <thead>
@@ -47,6 +57,7 @@ $db = get_db();
                         <th>Minimum Age</th>
                         <th>Average Time</th>
                         <th>Recurrence</th>
+                        <th>Completed</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,7 +70,7 @@ $db = get_db();
                         echo '<tr>';
                         echo '<td>' . $row['choreid'] . '</td><td>' . $row['chorename'] . '</td><td>' .$row['choredesc'] . '</td><td>' .$row['minage'] .
                             '</td><td>' . $row['avgtimehr'] . ': ' . $row['avgtimemin'] . '</td><td>' .$row['recurrencenum'] .
-                            ' ' . $row['recurrencetimeid'] . '</td>';
+                            ' ' . $row['recurrencetimeid'] . '</td><td>' . '<input type="checkbox" >' .'</td>';
                         echo '</tr>';
 
                     }
@@ -79,7 +90,7 @@ $db = get_db();
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Completed</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -90,7 +101,7 @@ $db = get_db();
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
                         echo '<tr>';
-                        echo '<td>' . $row['childid'] . '</td><td>' . $row['childfirstname'] . '</td><td>' .  $row['childlastname'] . '</td><td>' . $row['childemail'] . '</td><td>' . '<input type="checkbox" >' .'</td>';
+                        echo '<td>' . $row['childid'] . '</td><td>' . $row['childfirstname'] . '</td><td>' .  $row['childlastname'] . '</td><td>' . $row['childemail'] . '</td>';
                         echo '</tr>';
                     }
 

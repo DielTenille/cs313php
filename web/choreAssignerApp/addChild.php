@@ -7,6 +7,35 @@
  */
 require "dbConnection.php";
 $db = get_db();
+//$userID = $_GET['id'];
+
+if (isset($_POST['add_child'])) {
+    $firstname = $_POST['child_first_name'];
+    $lastname = $_POST['child_last_name'];
+    $email = $_POST['email'];
+    $userID = $_GET['id'];
+
+    if ($firstname == '' || $lastname == '') {
+        $formErrMsg = "Please fill out all fields.";
+    } else {
+        try {
+            $userID = $_GET['id'];
+            $db->exec("INSERT INTO child (childid, childfirstname, childlastname, childemail, fk_userid)
+                    VALUES 
+                    (DEFAULT , 
+                    '$firstname', 
+                    '$lastname', 
+                    '$email', 
+                    $userID)");
+            header("Location: userAccountDetails.php?id=$userID");
+        }
+        catch (PDOException $ex) {
+            echo "Error connecting to DB. Details: $ex";
+            die();
+        }
+    }
+
+}
 
 ?>
 
@@ -25,7 +54,6 @@ $db = get_db();
             <ul>
                 <li><a href="choreAssignerHome.php">Chore Assigner Home</a></li>
                 <li><a href="masterChoreList.php">Master Chore List</a></li>
-                <li><a href="childrenList.php">Children</a></li>
             </ul>
         </nav>
     </header>
@@ -35,22 +63,26 @@ $db = get_db();
             <section class="post-content">
                 <h2>Add Child Form</h2>
                 <hr>
+                <?= $userID?>
                 <br/>
+                <p id="error"><?php if($formErrMsg != ''){echo $formErrMsg;}  ?></p>
                 <form method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  >
+                    <div class="row">
 
-                    <label>First Name:
-                        <input type="text" name="child_first_name">
-                    </label>
-                    <br>
-                    <label>Last Name:
-                        <input type="text" name="child_last_name">
-                    </label>
-                    <br>
-                    <label>Email:
-                        <input type="text" name="email"> (optional)
-                    </label>
-                    <br><br>
-                    <button id="submit" class="button" type="submit">Submit</button>
+                        <label class="chore-form-label"><span class="chore-form-span">First Name:</span>
+                            <input class="chore-form-input" type="text" name="child_first_name">
+                        </label>
+
+                        <label class="chore-form-label"><span class="chore-form-span">Last Name:</span>
+                            <input class="chore-form-input" type="text" name="child_last_name">
+                        </label>
+
+                        <label class="chore-form-label"><span class="chore-form-span">Email:</span>
+                            <input class="chore-form-input" type="text" name="email">
+                        </label>
+                    </div>
+                        <br>
+                    <button id="submit" class="button" name= "add_child"  type="submit">Submit</button>
                 </form>
 
             </section>

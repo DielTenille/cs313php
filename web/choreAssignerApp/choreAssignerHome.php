@@ -26,7 +26,6 @@ $db = get_db();
             <ul>
                 <li><a href="choreAssignerHome.php">Chore Assigner Home</a></li>
                 <li><a href="masterChoreList.php">Master Chore List</a></li>
-                <li><a href="childrenList.php">Children</a></li>
             </ul>
         </nav>
     </header>
@@ -38,8 +37,7 @@ $db = get_db();
                 <hr>
                 <br/>
                 <h3>Current Users</h3>
-                <br>
-                <button id="new_User" class="button">Add User</button>
+
                 <table class="all-results">
                     <thead>
                     <tr>
@@ -48,24 +46,33 @@ $db = get_db();
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
+                        <th>View</th>
                     </tr>
                     </thead>
                     <tbody>
                 <?php
-                $statement = $db->prepare("SELECT appuserid, appusername, firstname, lastname, email FROM appuser");
+                $statement = $db->prepare("SELECT appuserid, appusername, firstname, lastname, email 
+                                           FROM appuser 
+                                           ORDER BY appuserid");
                 $statement->execute();
 
-                while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                {
-                    echo '<tr>';
-                    echo '<td>' . $row['appuserid'] . '</td><td>' . $row['appusername'] . '</td><td>' .  $row['firstname'] . '</td><td>' . $row['lastname'] . '</td><td>' . $row['email'] . '</td>';
-                    echo '</tr>';
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                <tr>
+                    <td> <?= $row['appuserid'] ?> </td>
+                    <td> <?= $row['appusername'] ?></td>
+                    <td> <?= $row['firstname'] ?> </td>
+                    <td> <?= $row['lastname'] ?></td>
+                    <td> <?= $row['email'] ?> </td>
+                    <td><button onclick="window.location='userAccountDetails.php?id=<?= $row['appuserid'] ?>'">View</button></td>
+                </tr>
+                <?php
                 }
 
                 ?>
                     </tbody>
                 </table>
-
+                <button id="new_User" class="button" onclick="window.location='addUser.php'">Add User</button>
             </section>
         </article>
     </main>

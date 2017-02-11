@@ -65,7 +65,8 @@ $db = get_db();
                     </tbody>
                 </table>
                 <br>
-                <button id="new_Chore" class="button">Add Chore</button>
+                <button id="new_Chore" class="button" onclick="window.location='addChore.php'">Add Chore</button>
+
             </section>
         </article>
     </main>
