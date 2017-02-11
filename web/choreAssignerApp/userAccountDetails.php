@@ -81,7 +81,7 @@ if (isset($_POST['add_list'])) {
                         <td> <?= $row['childfirstname'] ?> </td>
                         <td> <?= $row['childlastname'] ?> </td>
                         <td> <?= $row['childemail'] ?> </td>
-                        <td><button id="edit_Child" onclick="window.location='editchild.php?childid=<?= $row['childid'] ?>&id=<?= $userID ?>'">Edit Child</button></td>
+                        <td><button id="edit_Child" onclick="window.location='editChild.php?childid=<?= $row['childid'] ?>&id=<?= $userID ?>'">Edit Child</button></td>
                     </tr>
                         <?php
                     }
