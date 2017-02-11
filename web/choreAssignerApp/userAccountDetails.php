@@ -90,7 +90,7 @@ if (isset($_POST['add_list'])) {
                     </tbody>
                 </table>
                 <br>
-                <button id="new_Child" class="button"  onclick="window.location='addchild.php?id=<?= $userID ?>'">Add Child</button>
+                <button id="new_Child" class="button"  onclick="window.location='addChild.php?id=<?= $userID ?>'">Add Child</button>
 
                 <h3>Chore Lists</h3>
                 <table class="all-results">
