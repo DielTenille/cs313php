@@ -119,7 +119,7 @@ if (isset($_POST['add_list'])) {
                             <td> <?= $row['datecreated'] ?> </td>
                             <td> <?= $row['datecompleted'] ?> </td>
                             <td> <?= $row['lastupdated'] ?> </td>
-                        <td><button id="view_list" onclick="window.location='listProgressDetails.php?listid=<?= $row['listid'] ?>'">Edit List</button></td>
+                        <td><button id="view_list" onclick="window.location='editList.php?listid=<?= $row['listid'] ?>'">Edit List</button></td>
                         </tr>
                     <?php
                     }

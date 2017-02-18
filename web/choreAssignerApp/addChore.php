@@ -11,25 +11,29 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
 <?php
-$chname = $chdesc = $min = $avgtimehr = $avgtimemin = $renum = $retime = $inserted = "";
-$chnameErr = $minErr = $avgtimehrErr = $avgtimeminErr = $renumErr = $retimeErr = "";
+$chname = $chdesc = $minAge = $avgtimehr = $avgtimemin = $renum = $retime = "";
+$chnameErr = $minAgeErr = $avgtimehrErr = $avgtimeminErr = $renumErr = $retimeErr = "";
 
-if($chnameErr == "" && $minErr == "" ){
+if($chnameErr == "" && $minAgeErr == "" ){
     if (isset($_POST['add_chore'])) {
-        if($_POST['form'] == 'chore_form') {
-            if(empty($_POST["chore_name"])){
+         if(empty($_POST["chore_name"])){
                 $chnameErr = "Chore name is required";
             }
             else{
                 $chname = $_POST["chore_name"];
             }
-            if(empty($_POST["min_age"])){
-                $minErr = "Minimum Age is required";
+        if(empty($_POST["min_age"])){
+                $minAgeErr = "Minimum Age is required";
             }
             else{
-                $min = $_POST["min_age"];
+                $minAge = $_POST["min_age"];
             }
-        }
+        $chdesc = $_POST['chore_desc'];
+        $avgtimehr = $_POST['hours'];
+        $avgtimemin = $_POST['minutes'];
+        $renum = $_POST['numTime'];
+        $retime = $_POST['timeType'];
+
         $chores = $db->query(
             "SELECT chorename
                     FROM chore 
@@ -37,10 +41,16 @@ if($chnameErr == "" && $minErr == "" ){
         )->fetchAll();
 
         if(!$chores) {
-                $db->exec("INSERT INTO chore (chorename, choredesc, minage, avgtimehr, avgtimemin, recurrencenum, recurrencetimeid) VALUES 
-                   (DEFAULT, '$chname', $chdesc, $min, $avgtimehr, $avgtimemin, $renum, $retime");
+                $db->exec("INSERT INTO chore (choreid, chorename, choredesc, minage, avgtimehr, avgtimemin, recurrencenum, recurrencetimeid) 
+                          VALUES (DEFAULT, 
+                         '$chname', 
+                         '$chdesc', 
+                          $minAge, 
+                          $avgtimehr, 
+                          $avgtimemin, 
+                          $renum, 
+                          $retime)");
             header("Location: masterChoreList.php");
-//                $inserted = 'The chore has been added.';
         }
     }
 }
@@ -73,46 +83,66 @@ if($chnameErr == "" && $minErr == "" ){
                 <hr>
                 <br/>
                 <h3>New Chore Form</h3>
-                <br>
-                <p><span><?=$inserted;?></span></p>
                 <form method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  >
-                    <input type="hidden" name="form" value="chore_form" />
+
                     <label>Chore Name:
-                        <input type="text" name="chore_name" value="<?=$chname;?>"><span class="error">*<?= $chnameErr;?></span>
+                        <input type="text" name="chore_name"><span class="error">*<?= $chnameErr;?></span>
                     </label>
                     <br>
                     <label>Chore Description:
-                        <input type="text" name="chore_desc" value="<?=$chdesc;?>">
+                        <input type="text" name="chore_desc">
                     </label>
                     <br>
                     <label>Recommended Minimum Age:
-                        <input type="text" name="min_age" value="<?=$min;?>"><span class="error">*<?= $minErr;?></span>
+                        <input type="text" name="min_age"><span class="error">*<?= $minAgeErr;?></span>
                     </label>
                     <br>
                     <label>Average Time to Complete:</label>
-                        <input type="text" name="hours" value="<?=$avgtimehr;?>"> hours
-                        <input type="text" name="minutes" value="<?=$avgtimemin;?>"> minutes
+                        <select name="hours">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select> hours
+                    <select name="minutes" >
+                        <option value="0">0</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </select> minutes
                     <br>
                     <label>Recommended Recurrence:
-                        <select id="numTime">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
+                        <select name="numTime">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
                         </select>
-                        <select id="timeType">
+                        <select name="timeType">
                             <?php
                             $statement = $db->prepare("SELECT * FROM recurrence");
                             $statement->execute();
                             while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                             {
-                                echo '<option>' . $row['recurrencename'] . '</option>';
-
+                                echo '<option value="' . $row['recurrenceid'] . '">' . $row['recurrencename'] . '</option>';
                             }
-
                             ?>
                         </select>
                     </label>

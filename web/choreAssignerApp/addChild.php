@@ -7,13 +7,13 @@
  */
 require "dbConnection.php";
 $db = get_db();
-//$userID = $_GET['id'];
+$userID = $_GET['id'];
 
 if (isset($_POST['add_child'])) {
     $firstname = $_POST['child_first_name'];
     $lastname = $_POST['child_last_name'];
     $email = $_POST['email'];
-    $userID = $_GET['id'];
+    $parentID = $_POST['parentID'];
 
     if ($firstname == '' || $lastname == '') {
         $formErrMsg = "Please fill out all fields.";
@@ -26,8 +26,8 @@ if (isset($_POST['add_child'])) {
                     '$firstname', 
                     '$lastname', 
                     '$email', 
-                    $userID)");
-            header("Location: userAccountDetails.php?id=$userID");
+                    $parentID)");
+            header("Location: userAccountDetails.php?id=$parentID");
         }
         catch (PDOException $ex) {
             echo "Error connecting to DB. Details: $ex";
@@ -63,11 +63,11 @@ if (isset($_POST['add_child'])) {
             <section class="post-content">
                 <h2>Add Child Form</h2>
                 <hr>
-                <?= $userID?>
                 <br/>
                 <p id="error"><?php if($formErrMsg != ''){echo $formErrMsg;}  ?></p>
                 <form method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  >
                     <div class="row">
+                        <input type="hidden" name="parentID" value="<?= $userID?>">
 
                         <label class="chore-form-label"><span class="chore-form-span">First Name:</span>
                             <input class="chore-form-input" type="text" name="child_first_name">

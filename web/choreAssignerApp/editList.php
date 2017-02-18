@@ -7,7 +7,7 @@
  */
 require "dbConnection.php";
 $db = get_db();
-
+$listID = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,7 @@ $db = get_db();
                     </thead>
                     <tbody>
                     <?php
-                    $statement = $db->prepare("SELECT * FROM chore");
+                    $statement = $db->prepare("SELECT * FROM chore c INNER JOIN recurrence r ON (c.recurrencetimeid = r.recurrenceid)");
                     $statement->execute();
 
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -56,17 +56,29 @@ $db = get_db();
                         echo '<tr>';
                         echo '<td>' . $row['choreid'] . '</td><td>' . $row['chorename'] . '</td><td>' .$row['choredesc'] . '</td><td>' .$row['minage'] .
                             '</td><td>' . $row['avgtimehr'] . ': ' . $row['avgtimemin'] . '</td><td>' .$row['recurrencenum'] .
-                            ' ' . $row['recurrencetimeid'] . '</td>';
+                            ' ' . $row['recurrencename'] . '</td>';
                         echo '</tr>';
 
                     }
 
                     ?>
                     </tbody>
+
                 </table>
-                <br>
-                <button id="add_chore" class="button">Add Chore</button> <!-- Add input for new chore to be chosen from master list options-->
-                <br>
+                <form method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
+                    <select class="dropdown" name="master_chore_list">
+                        <?php
+                        $statement = $db->prepare("SELECT * FROM chore");
+                        $statement->execute();
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                        {
+                            echo '<option value="' . $row['choreid'] . '">' . $row['chorename'] . '</option>';
+                        }
+                        ?>
+                    </select>
+
+                <button name="add_chore" type="submit" class="button">Add Chore</button> <!-- Add input for new chore to be chosen from master list options-->
+                </form>
                 <h3>List Members</h3> <!-- Need to eventually add the child's name to the chore list above-->
                 <table class="all-results">
                     <thead>
@@ -93,7 +105,20 @@ $db = get_db();
                     ?>
                     </tbody>
                 </table>
-                <button id="add_member" class="button">Add Member</button>
+                <form method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
+                    <select class="dropdown" name="child_list">
+                        <?php
+                        $statement = $db->prepare("SELECT childid, childfirstname, childlastname FROM child");
+                        $statement->execute();
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                        {
+                            echo '<option value="' . $row['childid'] . '">' . $row['childfirstname'] . ' ' . $row['childlastname'] . '</option>';
+                        }
+                        ?>
+                    </select>
+
+                    <button name="add_member" type="submit" class="button">Add Member</button>
+                </form>
             </section>
         </article>
     </main>

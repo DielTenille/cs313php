@@ -26,7 +26,6 @@ $db = get_db();
             <ul>
                 <li><a href="choreAssignerHome.php">Chore Assigner Home</a></li>
                 <li><a href="masterChoreList.php">Master Chore List</a></li>
-                <li><a href="childrenList.php">Children</a></li>
             </ul>
         </nav>
     </header>
@@ -48,7 +47,7 @@ $db = get_db();
                     </thead>
                     <tbody>
                 <?php
-                $statement = $db->prepare("SELECT * FROM chore");
+                $statement = $db->prepare("SELECT * FROM chore c INNER JOIN recurrence r ON (c.recurrencetimeid = r.recurrenceid)");
                 $statement->execute();
 
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -56,7 +55,7 @@ $db = get_db();
                     echo '<tr>';
                     echo '<td>' . $row['choreid'] . '</td><td>' . $row['chorename'] . '</td><td>' .$row['choredesc'] . '</td><td>' .$row['minage'] .
                         '</td><td>' . $row['avgtimehr'] . ': ' . $row['avgtimemin'] . '</td><td>' .$row['recurrencenum'] .
-                        ' ' . $row['recurrencetimeid'] . '</td>';
+                        ' ' . $row['recurrencename'] . '</td>';
                     echo '</tr>';
 
                 }

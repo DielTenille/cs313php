@@ -70,7 +70,7 @@ if (isset($_POST['add_user'])) {
                         <input class="chore-form-input" type="text" name="user_name">
                     </label>
                     <label class="chore-form-label"><span class="chore-form-span">Password:</span>
-                    <input class="chore-form-input" type="text" name="user_password">
+                    <input class="chore-form-input" type="password" name="user_password">
                     </label>
                         </div>
 
